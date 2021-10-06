@@ -1,8 +1,9 @@
 import React from 'react';
 import styles from './Header.module.css';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
 
-export const Header = (props) => {
+export const Header = (props: any) => {
     const router = useRouter();
     const onHandleClick = () => {
         router.push('/profile/1');
@@ -19,7 +20,12 @@ export const Header = (props) => {
                 >
                     <div className={styles.name}>User Name</div>
                     <div className={styles.avatar}>
-                        <img src="" alt="user logo"/>
+                        <Image
+                            src="/static/user.png"
+                            alt="user logo"
+                            width={50}
+                            height={50}
+                        />
                     </div>
                 </div>
             </div>

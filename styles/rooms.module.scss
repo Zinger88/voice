@@ -1,0 +1,30 @@
+.main {
+    height: 100%;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+.topbarTitle {
+    line-height: 0;
+}
+
+.wrapper {
+    flex: 1 1 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    align-items: flex-start;
+    align-content: flex-start;
+}

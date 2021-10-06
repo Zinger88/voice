@@ -1,0 +1,29 @@
+[
+    {
+        "id": "1",
+        "title": "About technical",
+        "usersCount": "2",
+        "users": [
+            {"name": "Serg"},
+            {"name": "Artur"}
+        ]
+    },
+    {
+        "id": "2",
+        "title": "Offtopics",
+        "usersCount": "3",
+        "users": [
+            {"name": "Serg"},
+            {"name": "Artur"},
+            {"name": "Andrey"}
+        ]
+    },
+    {
+        "id": "3",
+        "title": "Solo room. Do not disturb",
+        "usersCount": "1",
+        "users": [
+            {"name": "Serg"}
+        ]
+    }
+]
