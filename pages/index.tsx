@@ -6,13 +6,15 @@ import { ChooseAvatarScreen } from '../components/steps/ChooseAvatarScreen';
 import { SetPhoneNumberScreen } from '../components/steps/SetPhoneNumberScreen';
 import { EnterActivateCodeScreen } from '../components/steps/EnterActivateCodeScreen';
 import { Header } from '../components/Header';
+import { EnterWithAuth } from '../components/steps/EnterWithAuth';
 
 const stepsComponents = {
   0: WelcomeScreen,
-  1: EnterFullNameScreen,
-  2: ChooseAvatarScreen,
-  3: SetPhoneNumberScreen,
-  4: EnterActivateCodeScreen
+  1: EnterWithAuth,
+  2: EnterFullNameScreen,
+  3: ChooseAvatarScreen,
+  4: SetPhoneNumberScreen,
+  5: EnterActivateCodeScreen
 }
 
 type MainContextProps = {
