@@ -17,9 +17,20 @@ const stepsComponents = {
   5: EnterActivateCodeScreen
 }
 
+type User = {
+  id: string,
+  fullname: string,
+  avatarUrl: string,
+  isActive: number,
+  phone: string,
+  userName: string,
+  createdAt: string,
+  updatedAt: string
+}
+
 type MainContextProps = {
   step: number,
-  user: null | object,
+  user: null | User,
   onNextStep: (val: number) => void
   onSetUser: (val: object) => void
 }
@@ -29,9 +40,16 @@ export const MainContext = React.createContext<MainContextProps>({} as MainConte
 export default function Home() {
   const [step, setStep] = React.useState<number>(0);
   const [user, setUser] = React.useState<object>({});
-  const Step = stepsComponents[step];
+  const Step = stepsComponents[4];
   const onSetUser = (user: object) => {
     setUser(user);
+  }
+
+  const onSetUserField = (field:string, value:string) => {
+    setUser((prev) => ({
+      ...prev,
+      [field]: value
+    }));
   }
 
   const onNextStep = () => {
@@ -41,7 +59,7 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <main className={styles.main}>
-        <MainContext.Provider value={{step, user, onNextStep, onSetUser }}>
+        <MainContext.Provider value={{step, user, onNextStep, onSetUser, onSetUserField }}>
           <Step />
         </MainContext.Provider>
       </main>

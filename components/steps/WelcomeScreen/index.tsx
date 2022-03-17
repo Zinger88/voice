@@ -7,11 +7,11 @@ export const WelcomeScreen: React.FC = (props) => {
 
     return (
         <div className="welcome">
-            <h2>Welcome to Simple Voice!</h2>
+            <h2>Welcome to Voice!</h2>
             <Button
                 onClick={onNextStep}
             >
-                <span>Get your name</span>
+                <span>Let's start!</span>
             </Button>
         </div>
     )

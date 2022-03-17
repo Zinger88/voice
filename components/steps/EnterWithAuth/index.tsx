@@ -4,7 +4,6 @@ import { Button } from '../../Button';
 
 export const EnterWithAuth: React.FC = () => {
     const context = React.useContext(MainContext);
-    let timer = null;
     const onClickAuth = () => {
         const win = window.open(
             "http://localhost:3001/auth/github", 
@@ -23,7 +22,7 @@ export const EnterWithAuth: React.FC = () => {
     },[]);
 
     return (
-        <div>
+        <div className="enter-with-auth">
             <h2>Do you want import info from GitHub?</h2>
             <div>
                 <Button
@@ -33,9 +32,9 @@ export const EnterWithAuth: React.FC = () => {
                 </Button>
             </div>
             
-            <div>
+            {/* <div>
                 <a href="">Enter my info manually</a>
-            </div>
+            </div> */}
             
         </div>
     )
