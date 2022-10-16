@@ -2,13 +2,13 @@
     color: white;
     border: none;
     outline: none;
-    background-color:cadetblue;
+    background-color: cadetblue;
     width: 100%;
     max-width: 150px;
     height: 30px;
     border-radius: 5px;
     cursor: pointer;
-    transition: .3s;
+    transition: 0.3s;
     font-weight: bold;
 }
 
@@ -22,5 +22,5 @@
 
 .btn:hover {
     transform: scale(1.05);
-    transition: .3s;
+    transition: 0.3s;
 }

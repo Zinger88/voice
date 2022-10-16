@@ -1,38 +1,39 @@
-import React from 'react';
-import { Button } from '../../Button';
-import Axios from '../../../core/axios';
-import { useRouter } from 'next/router';
+import React from 'react'
+import { Button } from '../../Button'
+import Axios from '../../../core/axios'
+import { useRouter } from 'next/router'
 
 export const EnterActivateCodeScreen = () => {
-    const [codes, setCodes] = React.useState(['','','','']);
-    const isNextValueDisabled = codes.length < 4 || codes.some((value)=>!value);
-    const [isLoading, setIsLoading] = React.useState<boolean>(false);
-    const router = useRouter();
+    const [codes, setCodes] = React.useState(['', '', '', ''])
+    const isNextValueDisabled =
+        codes.length < 4 || codes.some((value) => !value)
+    const [isLoading, setIsLoading] = React.useState<boolean>(false)
+    const router = useRouter()
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const id: any = event.target.id;
-        const value = event.target.value;
+        const id: any = event.target.id
+        const value = event.target.value
         setCodes((prev) => {
-            let newArr = [...prev, ];
-            newArr[id] = value;
-            return newArr;
-        });
-        if(event.target.nextSibling && value) {
-            (event.target.nextSibling as HTMLElement).focus();
+            let newArr = [...prev]
+            newArr[id] = value
+            return newArr
+        })
+        if (event.target.nextSibling && value) {
+            ;(event.target.nextSibling as HTMLElement).focus()
         }
     }
 
     const onSubmit = async () => {
-        console.log('tut');
-        
+        console.log('tut')
+
         try {
-            setIsLoading(true);
-            const result = await Axios.get('/posts');
-            console.log(result);
-            router.push('/rooms');
+            setIsLoading(true)
+            const result = await Axios.get('/posts')
+            console.log(result)
+            router.push('/rooms')
         } catch (error) {
-            alert('Ошибка при активации');
+            alert('Ошибка при активации')
         }
-        setIsLoading(false);
+        setIsLoading(false)
     }
 
     return (
@@ -42,8 +43,8 @@ export const EnterActivateCodeScreen = () => {
                     <h2>Enter your activate code</h2>
 
                     <div>
-                        <input 
-                            type="tel" 
+                        <input
+                            type="tel"
                             name=""
                             placeholder="X"
                             maxLength={1}
@@ -51,8 +52,8 @@ export const EnterActivateCodeScreen = () => {
                             onChange={handleInputChange}
                             value={codes[0]}
                         />
-                        <input 
-                            type="tel" 
+                        <input
+                            type="tel"
                             name=""
                             placeholder="X"
                             maxLength={1}
@@ -60,8 +61,8 @@ export const EnterActivateCodeScreen = () => {
                             onChange={handleInputChange}
                             value={codes[1]}
                         />
-                        <input 
-                            type="tel" 
+                        <input
+                            type="tel"
                             name=""
                             placeholder="X"
                             maxLength={1}
@@ -69,8 +70,8 @@ export const EnterActivateCodeScreen = () => {
                             onChange={handleInputChange}
                             value={codes[2]}
                         />
-                        <input 
-                            type="tel" 
+                        <input
+                            type="tel"
                             name=""
                             placeholder="X"
                             maxLength={1}
@@ -79,10 +80,7 @@ export const EnterActivateCodeScreen = () => {
                             value={codes[3]}
                         />
                     </div>
-                    <Button
-                        onClick={onSubmit}
-                        disabled={isNextValueDisabled}
-                    >
+                    <Button onClick={onSubmit} disabled={isNextValueDisabled}>
                         <span>Activate</span>
                     </Button>
                 </>

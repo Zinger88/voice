@@ -1,40 +1,46 @@
-import React from 'react';
-import { useRouter } from 'next/router';
-import { Header } from '../../components/Header';
-import styles from '../../styles/Room.module.scss';
-import Image from 'next/image';
-import axios from '../../core/axios';
+import React from 'react'
+import { useRouter } from 'next/router'
+import { Header } from '../../components/Header'
+import styles from '../../styles/Room.module.scss'
+import Image from 'next/image'
+import axios from '../../core/axios'
 
 interface Room {
-    id: string,
-    title: string,
-    users: Users[],
+    id: string
+    title: string
+    users: Users[]
     usersCount: string
 }
 
 interface Users {
-    name: string,
-    avatarSrc?: string 
+    name: string
+    avatarSrc?: string
 }
 
 const Room: React.FC<Room> = ({ room: room }) => {
-    const router = useRouter();
+    const router = useRouter()
     return (
         <div className="main">
             <Header />
             <div className="container-1200">
-                <div className="mb-30" onClick={() => router.back()}>All rooms</div>
+                <div className="mb-30" onClick={() => router.back()}>
+                    All rooms
+                </div>
                 <div className={styles.wrapper}>
                     <div className={styles.topbar}>
                         <div className={styles.title}>{room.title}</div>
-                        <div className={styles.leave} onClick={() => router.back()}>
+                        <div
+                            className={styles.leave}
+                            onClick={() => router.back()}>
                             Leave room
                         </div>
                     </div>
                     <div className={styles.users}>
-                        {room.users.map((user:any, index:number) => {
+                        {room.users.map((user: any, index: number) => {
                             return (
-                                <div key={user.name + '_' + index} className={styles.user}>
+                                <div
+                                    key={user.name + '_' + index}
+                                    className={styles.user}>
                                     <div className={styles.avatar}>
                                         <Image
                                             src="/static/user.png"
@@ -60,15 +66,15 @@ export async function getServerSideProps(context: any) {
     const { data } = await axios({
         method: 'get',
         url: '/rooms.json',
-        baseURL: 'http://localhost:3000/'
-    });
-    const pageId = context.query.id;
-    const room = data.find((item:any) => item.id === pageId);
+        baseURL: 'http://localhost:3000/',
+    })
+    const pageId = context.query.id
+    const room = data.find((item: any) => item.id === pageId)
     return {
         props: {
-            room
+            room,
         },
     }
 }
 
-export default Room;
+export default Room
