@@ -1,10 +1,9 @@
-import Image from 'next/image'
-import { useRouter } from 'next/router'
-import React from 'react'
-
 import { Header } from '../../components/Header'
 import axios from '../../core/axios'
 import styles from '../../styles/Room.module.scss'
+import Image from 'next/image'
+import { useRouter } from 'next/router'
+import React from 'react'
 
 interface Room {
     id: string

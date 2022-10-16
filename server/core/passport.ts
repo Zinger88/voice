@@ -1,8 +1,7 @@
+import { User } from '../../models'
 import passport from 'passport'
 import { Strategy } from 'passport-github'
 import { where } from 'sequelize/types'
-
-import { User } from '../../models'
 
 const strategy = Strategy
 

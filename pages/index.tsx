@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { Header } from '../components/Header'
 import { ChooseAvatarScreen } from '../components/steps/ChooseAvatarScreen'
 import { EnterActivateCodeScreen } from '../components/steps/EnterActivateCodeScreen'
@@ -8,6 +6,7 @@ import { EnterWithAuth } from '../components/steps/EnterWithAuth'
 import { SetPhoneNumberScreen } from '../components/steps/SetPhoneNumberScreen'
 import { WelcomeScreen } from '../components/steps/WelcomeScreen'
 import styles from '../styles/Home.module.css'
+import React from 'react'
 
 const stepsComponents = {
     0: WelcomeScreen,

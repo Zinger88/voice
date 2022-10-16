@@ -1,7 +1,8 @@
-import Image from 'next/image'
 import React from 'react'
 
 import styles from './RoomCard.module.scss'
+import Image from 'next/image'
+
 
 interface RoomCard {
     title: string

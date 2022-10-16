@@ -1,7 +1,6 @@
-import React from 'react'
-
 import { MainContext } from '../../../pages'
 import { Button } from '../../Button'
+import React from 'react'
 
 export const EnterWithAuth: React.FC = () => {
     const context = React.useContext(MainContext)

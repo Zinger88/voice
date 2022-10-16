@@ -1,7 +1,6 @@
+import styles from './Button.module.css'
 import { loadGetInitialProps } from 'next/dist/next-server/lib/utils'
 import React from 'react'
-
-import styles from './Button.module.css'
 
 interface ButtonProps {
     disabled?: boolean | undefined

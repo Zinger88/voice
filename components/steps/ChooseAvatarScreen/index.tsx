@@ -3,6 +3,7 @@ import React from 'react'
 import { MainContext } from '../../../pages'
 import { Button } from '../../Button'
 
+
 export const ChooseAvatarScreen: React.FC = () => {
     const context = React.useContext(MainContext)
 
