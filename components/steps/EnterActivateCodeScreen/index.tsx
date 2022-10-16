@@ -30,7 +30,7 @@ export const EnterActivateCodeScreen = () => {
             setIsLoading(true)
             const result = await Axios.get('/posts')
             console.log(result)
-            router.push('/rooms')
+            //router.push('/rooms')
         } catch (error) {
             alert('Ошибка при активации')
         }

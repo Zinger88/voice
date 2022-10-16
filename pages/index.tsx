@@ -31,9 +31,10 @@ type User = {
 
 type MainContextProps = {
     step: number
-    user: null | User
-    onNextStep: (val: number) => void
-    onSetUser: (val: object) => void
+    user: any
+    onNextStep: any
+    onSetUser: any
+    onSetUserField: any
 }
 
 export const MainContext = React.createContext<MainContextProps>(
@@ -42,14 +43,14 @@ export const MainContext = React.createContext<MainContextProps>(
 
 export default function Home() {
     const [step, setStep] = React.useState<number>(0)
-    const [user, setUser] = React.useState<object>({})
-    const Step = stepsComponents[4]
-    const onSetUser = (user: object) => {
+    const [user, setUser] = React.useState<any>({})
+    const Step = stepsComponents[5]
+    const onSetUser = (user: any) => {
         setUser(user)
     }
 
     const onSetUserField = (field: string, value: string) => {
-        setUser((prev) => ({
+        setUser((prev: any) => ({
             ...prev,
             [field]: value,
         }))

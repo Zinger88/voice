@@ -24,9 +24,9 @@ export const SetPhoneNumberScreen: React.FC = () => {
                 mask="_"
                 placeholder="+375 (25) 333-33-33"
                 value={inputValue.value}
-                onValueChange={(values) => setInputValue(values)}
+                //onValueChange={(values) => setInputValue(values)}
             />
-            <Button disabled={isNextValueDisabled} onClick={onNextStep}>
+            <Button onClick={onNextStep}>
                 <span>Next</span>
             </Button>
         </div>

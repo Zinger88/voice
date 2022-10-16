@@ -3,11 +3,11 @@ import React from 'react'
 import { MainContext } from '../../../pages'
 import { Button } from '../../Button'
 
-export default function EnterFullNameScreen(props) {
+export default function EnterFullNameScreen() {
     const context = React.useContext(MainContext)
     const name = context.user?.fullname
     const [inputValue, setInputValue] = React.useState(name)
-    const onInputChange = (e) => {
+    const onInputChange = (e: any) => {
         setInputValue(e.target.value)
     }
 

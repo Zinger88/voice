@@ -8,10 +8,14 @@ export const ChooseAvatarScreen: React.FC = () => {
 
     const chooseAvatarInput = React.useRef<HTMLInputElement>(null)
 
-    const handleChangeInput = (event: Event): void => {
-        const file = (event.target as HTMLInputElement).files[0]
-        const imageUrl = URL.createObjectURL(file)
-        console.log(imageUrl)
+    const handleChangeInput = (event: any): void => {
+        if(event.target) {
+            const file = event.target.files[0]
+            if(file) {
+                const imageUrl = URL.createObjectURL(file)
+                console.log(imageUrl)
+            }
+        }
     }
 
     React.useEffect(() => {
@@ -27,14 +31,13 @@ export const ChooseAvatarScreen: React.FC = () => {
         <div className="choose-avatar">
             <h2>Welcome, {context.user?.fullname}</h2>
             <h3>
-                Please, choose your avatar if you don't like current:) (avatar
-                change is not working)
+                Please, choose your avatar if you dont like current
             </h3>
-            <img
+            {/* <img
                 className="choose-avatar-img"
                 src={context.user?.avatarUrl}
                 alt="Avatar"
-            />
+            /> */}
             <input
                 ref={chooseAvatarInput}
                 type="file"

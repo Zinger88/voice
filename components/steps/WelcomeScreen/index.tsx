@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react"
 
 import { MainContext } from '../../../pages'
 import { Button } from '../../Button'
@@ -10,7 +10,7 @@ export const WelcomeScreen: React.FC = (props) => {
         <div className="welcome">
             <h2>Welcome to Voice!</h2>
             <Button onClick={onNextStep}>
-                <span>Let's start!</span>
+                <span>Lets start!</span>
             </Button>
         </div>
     )

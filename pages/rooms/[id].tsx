@@ -7,10 +7,11 @@ import axios from '../../core/axios'
 import styles from '../../styles/Room.module.scss'
 
 interface Room {
-    id: string
-    title: string
-    users: Users[]
-    usersCount: string
+    // id: string
+    // title: string
+    // users: Users[]
+    // usersCount: string
+    room: any
 }
 
 interface Users {
