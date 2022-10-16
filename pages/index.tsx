@@ -59,7 +59,7 @@ export default function Home() {
     }
 
     return (
-        <div className={styles.container} onClick={() => {}} data="55959">
+        <div className={styles.container}>
             <main className={styles.main}>
                 <MainContext.Provider
                     value={{

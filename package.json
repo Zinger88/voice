@@ -8,7 +8,8 @@
         "start": "next start",
         "lint": "next lint",
         "prettier": "prettier --write .",
-        "server": "ts-node-dev --respawn --transpile-only server/index.ts"
+        "server": "ts-node-dev --respawn --transpile-only server/index.ts",
+        "prepare": "husky install"
     },
     "dependencies": {
         "axios": "^0.21.1",
@@ -36,6 +37,7 @@
         "@types/react": "17.0.14",
         "eslint": "7.30.0",
         "eslint-config-next": "11.0.1",
+        "husky": "^8.0.1",
         "i": "^0.3.7",
         "npm": "^7.24.2",
         "prettier": "2.7.1",
