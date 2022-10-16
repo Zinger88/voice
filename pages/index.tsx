@@ -1,12 +1,13 @@
 import React from 'react'
-import styles from '../styles/Home.module.css'
-import { WelcomeScreen } from '../components/steps/WelcomeScreen'
-import EnterFullNameScreen from '../components/steps/EnterFullNameScreen'
-import { ChooseAvatarScreen } from '../components/steps/ChooseAvatarScreen'
-import { SetPhoneNumberScreen } from '../components/steps/SetPhoneNumberScreen'
-import { EnterActivateCodeScreen } from '../components/steps/EnterActivateCodeScreen'
+
 import { Header } from '../components/Header'
+import { ChooseAvatarScreen } from '../components/steps/ChooseAvatarScreen'
+import { EnterActivateCodeScreen } from '../components/steps/EnterActivateCodeScreen'
+import EnterFullNameScreen from '../components/steps/EnterFullNameScreen'
 import { EnterWithAuth } from '../components/steps/EnterWithAuth'
+import { SetPhoneNumberScreen } from '../components/steps/SetPhoneNumberScreen'
+import { WelcomeScreen } from '../components/steps/WelcomeScreen'
+import styles from '../styles/Home.module.css'
 
 const stepsComponents = {
     0: WelcomeScreen,
