@@ -1,6 +1,7 @@
 import React from 'react'
-import { Button } from '../../Button'
+
 import { MainContext } from '../../../pages'
+import { Button } from '../../Button'
 
 export const WelcomeScreen: React.FC = (props) => {
     const { onNextStep } = React.useContext(MainContext)

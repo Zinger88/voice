@@ -1,11 +1,12 @@
+import axios from 'axios'
+import Head from 'next/head'
+import Link from 'next/link'
 import React from 'react'
+
 import { Button } from '../components/Button'
 import { Header } from '../components/Header'
 import { RoomCard } from '../components/RoomCard'
-import Link from 'next/link'
 import styles from '../styles/rooms.module.scss'
-import Head from 'next/head'
-import axios from 'axios'
 
 interface Rooms {
     rooms: Room[]

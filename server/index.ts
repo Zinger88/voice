@@ -1,11 +1,10 @@
-import express from 'express'
 import dotenv from 'dotenv'
-
-dotenv.config()
+import express from 'express'
 
 import './core/db'
-
 import { passport } from './core/passport'
+
+dotenv.config()
 
 const app = express()
 

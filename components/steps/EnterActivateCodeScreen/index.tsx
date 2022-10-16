@@ -1,7 +1,8 @@
-import React from 'react'
-import { Button } from '../../Button'
-import Axios from '../../../core/axios'
 import { useRouter } from 'next/router'
+import React from 'react'
+
+import Axios from '../../../core/axios'
+import { Button } from '../../Button'
 
 export const EnterActivateCodeScreen = () => {
     const [codes, setCodes] = React.useState(['', '', '', ''])

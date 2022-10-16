@@ -1,5 +1,6 @@
 import React from 'react'
 import NumberFormat from 'react-number-format'
+
 import { MainContext } from '../../../pages'
 import { Button } from '../../Button'
 
