@@ -1,6 +1,7 @@
+import React from 'react'
+
 import { MainContext } from '../../../pages'
 import { Button } from '../../Button'
-import React from 'react'
 
 export default function EnterFullNameScreen(props) {
     const context = React.useContext(MainContext)

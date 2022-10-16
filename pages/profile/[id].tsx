@@ -1,6 +1,7 @@
-import { Header } from '../../components/Header'
 import { useRouter } from 'next/router'
 import React from 'react'
+
+import { Header } from '../../components/Header'
 
 export default function Profile() {
     const router = useRouter()
