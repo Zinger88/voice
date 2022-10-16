@@ -5,7 +5,7 @@ import './core/db'
 import { passport } from './core/passport'
 
 // prettier-ignore
-dotenv.config() // IGNORE NOT WORKS !? 
+dotenv.config() // IGNORE NOT WORKS !?
 
 const app = express()
 
