@@ -6,7 +6,7 @@ import styles from './Button.module.css'
 interface ButtonProps {
     disabled?: boolean | undefined
     color?: string
-    onClick?: (event: React.MouseEvent<HTMLElement>) => void
+    onClick?: (event: any) => void
 }
 
 export const Button: React.FC<ButtonProps> = ({
@@ -15,9 +15,9 @@ export const Button: React.FC<ButtonProps> = ({
     color,
     onClick,
 }) => {
-    const onHandleClick = () => {
+    const onHandleClick = (e: any) => {
         if (onClick) {
-            onClick()
+            onClick(e)
         } else {
             console.log('Click ')
         }
