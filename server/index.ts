@@ -1,10 +1,11 @@
+import './core/db'
 import dotenv from 'dotenv'
+// prettier-ignore
+dotenv.config()
+
+import { passport } from './core/passport'
 import express from 'express'
 
-import './core/db'
-import { passport } from './core/passport'
-
-dotenv.config()
 
 const app = express()
 
