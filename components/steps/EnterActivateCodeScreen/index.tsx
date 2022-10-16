@@ -6,8 +6,7 @@ import { Button } from '../../Button'
 
 export const EnterActivateCodeScreen = () => {
     const [codes, setCodes] = React.useState(['', '', '', ''])
-    const isNextValueDisabled =
-        codes.length < 4 || codes.some((value) => !value)
+    const isNextValueDisabled = codes.length < 4 || codes.some((value) => !value)
     const [isLoading, setIsLoading] = React.useState<boolean>(false)
     const router = useRouter()
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -24,8 +23,6 @@ export const EnterActivateCodeScreen = () => {
     }
 
     const onSubmit = async () => {
-        console.log('tut')
-
         try {
             setIsLoading(true)
             const result = await Axios.get('/posts')

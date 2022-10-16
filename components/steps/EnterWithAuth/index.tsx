@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { MainContext } from '../../../pages'
+import { MainContext } from '../../../contexts/MainContex'
 import { Button } from '../../Button'
 
 export const EnterWithAuth: React.FC = () => {
@@ -15,10 +15,7 @@ export const EnterWithAuth: React.FC = () => {
 
     React.useEffect(() => {
         window.addEventListener('message', (mes) => {
-            if (
-                typeof mes.data === 'string' &&
-                mes.data.indexOf('fullname') > -1
-            ) {
+            if (typeof mes.data === 'string' && mes.data.indexOf('fullname') > -1) {
                 context.onSetUser(JSON.parse(mes.data))
                 context.onNextStep()
             }

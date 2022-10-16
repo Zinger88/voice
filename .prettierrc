@@ -1,9 +1,10 @@
 {
+    "printWidth": 120,
     "trailingComma": "es5",
     "tabWidth": 4,
     "semi": false,
     "bracketSpacing": true,
-    "bracketSameLine": true,
+    "bracketSameLine": false,
     "singleQuote": true,
     "importOrder": ["^@core/(.*)$", "^@server/(.*)$", "^@ui/(.*)$", "^[./]"],
     "importOrderSeparation": true,

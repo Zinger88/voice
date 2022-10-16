@@ -1,6 +1,6 @@
-import React from "react"
+import React from 'react'
 
-import { MainContext } from '../../../pages'
+import { MainContext } from '../../../contexts/MainContex'
 import { Button } from '../../Button'
 
 export const WelcomeScreen: React.FC = (props) => {

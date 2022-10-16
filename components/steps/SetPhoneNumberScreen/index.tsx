@@ -1,7 +1,7 @@
 import React from 'react'
 import NumberFormat from 'react-number-format'
 
-import { MainContext } from '../../../pages'
+import { MainContext } from '../../../contexts/MainContex'
 import { Button } from '../../Button'
 
 type InputValueState = {
@@ -10,9 +10,7 @@ type InputValueState = {
 }
 
 export const SetPhoneNumberScreen: React.FC = () => {
-    const [inputValue, setInputValue] = React.useState<InputValueState>(
-        {} as InputValueState
-    )
+    const [inputValue, setInputValue] = React.useState<InputValueState>({} as InputValueState)
     const isNextValueDisabled = inputValue.value && inputValue.value.length < 12
     const { onNextStep } = React.useContext(MainContext)
     console.log(inputValue)
