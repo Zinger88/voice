@@ -21,7 +21,6 @@ type Room = {
 
 const Rooms: React.FC<Rooms> = () => {
     const [rooms, setRooms] = useState([{id: '', title: '', users: [], usersCount: 0}])
-
     useEffect(() => {
         const getRooms = async () => {
             const { data } = await Axios({
