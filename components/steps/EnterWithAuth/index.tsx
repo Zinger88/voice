@@ -13,15 +13,6 @@ export const EnterWithAuth: React.FC = () => {
         )
     }
 
-    React.useEffect(() => {
-        window.addEventListener('message', (mes) => {
-            if (typeof mes.data === 'string' && mes.data.indexOf('fullname') > -1) {
-                context.onSetUser(JSON.parse(mes.data))
-                context.onNextStep()
-            }
-        })
-    }, [])
-
     return (
         <div className="enter-with-auth">
             <h2>Do you want import info from GitHub?</h2>

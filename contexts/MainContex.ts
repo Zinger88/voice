@@ -6,6 +6,7 @@ type MainContextProps = {
     onNextStep: any
     onSetUser: any
     onSetUserField: any
+    auth: any
 }
 
 export const MainContext = React.createContext<MainContextProps>({} as MainContextProps)

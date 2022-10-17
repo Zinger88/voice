@@ -4,12 +4,12 @@ import React from 'react'
 
 import styles from './Header.module.css'
 
+// eslint-disable-next-line react/display-name
 export const Header = React.memo((props: any) => {
     const router = useRouter()
     const onHandleClick = () => {
         router.push('/profile/1')
     }
-    console.log(process)
     return (
         <div className="container-1200">
             <div className={styles.main}>

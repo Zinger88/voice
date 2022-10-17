@@ -1,11 +1,11 @@
-import axios from 'axios'
 import Head from 'next/head'
 import Link from 'next/link'
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 
 import { Button } from '../components/Button'
 import { Header } from '../components/Header'
 import { RoomCard } from '../components/RoomCard'
+import Axios from '../core/axios'
 import styles from '../styles/rooms.module.scss'
 
 interface Rooms {
@@ -19,7 +19,20 @@ type Room = {
     usersCount: number
 }
 
-const Rooms: React.FC<Rooms> = ({ rooms = [] }) => {
+const Rooms: React.FC<Rooms> = () => {
+    const [rooms, setRooms] = useState([{id: '', title: '', users: [], usersCount: 0}])
+
+    useEffect(() => {
+        const getRooms = async () => {
+            const { data } = await Axios({
+                method: 'get',
+                url: '/rooms.json',
+            })
+            setRooms(data)
+        }
+        getRooms()
+    },[])
+
     const mapRooms = () => {
         return rooms.map((room) => {
             return (
@@ -32,7 +45,7 @@ const Rooms: React.FC<Rooms> = ({ rooms = [] }) => {
         })
     }
 
-    const memoMapRooms = React.useMemo(() => mapRooms, [rooms])
+    const memoMapRooms = React.useMemo(() => mapRooms, [rooms, mapRooms])
 
     return (
         <>
@@ -56,18 +69,17 @@ const Rooms: React.FC<Rooms> = ({ rooms = [] }) => {
     )
 }
 
-export async function getStaticProps() {
-    const { data } = await axios({
-        method: 'get',
-        url: '/rooms.json',
-        baseURL: 'http://localhost:3000/',
-    })
-    return {
-        props: {
-            rooms: data || [],
-            fallback: false,
-        }, // will be passed to the page component as props
-    }
-}
+// export async function getStaticProps() {
+//     const { data } = await Axios({
+//         method: 'get',
+//         url: '/rooms.json',
+//     })
+//     return {
+//         props: {
+//             rooms: data || [],
+//             fallback: false,
+//         }, // will be passed to the page component as props
+//     }
+// }
 
 export default Rooms
