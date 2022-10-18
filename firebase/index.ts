@@ -1,5 +1,6 @@
 import { getAuth } from '@firebase/auth'
 import { initializeApp } from 'firebase/app'
+import { useEffect, useState } from 'react'
 
 //import { getAnalytics } from "firebase/analytics"
 // TODO: Add SDKs for Firebase products that you want to use
@@ -19,3 +20,31 @@ const firebaseConfig = {
 export const firebaseInstance = initializeApp(firebaseConfig)
 //export const firebaseAnalytics = getAnalytics(firebaseInstance)
 export const firebaseAuth = getAuth(firebaseInstance)
+
+
+export default function useFirebaseAuth() {
+    const [authUser, setAuthUser] = useState<any>(null)
+    const [loading, setLoading] = useState<any>(true)
+
+    const authStateChanged = async (authState: any) => {
+        if (!authState) {
+            setAuthUser(null)
+            setLoading(false)
+            return
+        }
+
+        setLoading(true)
+        setAuthUser(authState)
+        setLoading(false)
+    }
+
+    useEffect(() => {
+        const unsubscribe = firebaseAuth.onAuthStateChanged(authStateChanged)
+        return () => unsubscribe()
+    }, [])
+
+    return {
+        authUser,
+        loading,
+    }
+}

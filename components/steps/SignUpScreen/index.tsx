@@ -6,14 +6,14 @@ import { Button } from '../../Button';
 
 
 export const SignUpScreen: React.FC = (props) => {
-    const { onNextStep, onSetUser } = React.useContext(MainContext)
+    //const { onNextStep, onSetUser } = React.useContext(MainContext)
     const { login, isPending } = useLogin()
 
     const onLoginHandler = async () => {
         const user = await login()
         if (user) {
-            onSetUser(user)
-            onNextStep()
+            //onSetUser(user)
+            //onNextStep()
         }
     }
     return (

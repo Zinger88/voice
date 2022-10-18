@@ -1,18 +1,18 @@
 [
     {
-        "id": "1",
+        "id": "asdf",
         "title": "About technical",
         "usersCount": "2",
         "users": [{ "name": "Serg" }, { "name": "Artur" }]
     },
     {
-        "id": "2",
+        "id": "hjkl",
         "title": "Offtopics",
         "usersCount": "3",
         "users": [{ "name": "Serg" }, { "name": "Artur" }, { "name": "Andrey" }]
     },
     {
-        "id": "3",
+        "id": "cvbn",
         "title": "Solo room. Do not disturb",
         "usersCount": "1",
         "users": [{ "name": "Serg" }]

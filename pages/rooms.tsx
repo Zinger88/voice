@@ -35,9 +35,14 @@ const Rooms: React.FC<Rooms> = () => {
     const mapRooms = () => {
         return rooms.map((room) => {
             return (
-                <Link key={room.id} href={'/rooms/' + room.id}>
+                <Link key={ room.id } href={'/rooms/' + room.id}>
                     <a>
-                        <RoomCard key={room.id} title={room.title} users={room.users} usersCount={room.usersCount} />
+                        <RoomCard
+                            key={ room.id }
+                            title={ room.title }
+                            users={ room.users }
+                            usersCount={ room.usersCount }
+                        />
                     </a>
                 </Link>
             )

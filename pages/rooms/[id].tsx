@@ -12,6 +12,7 @@ interface Users {
 }
 
 interface Room {
+    id: string
     title: string
     users: []
 }
@@ -20,6 +21,7 @@ const Room: React.FC = () => {
     const router = useRouter()
     const { id } = router.query
     const [room , setRoom] = useState<Room>({
+        id: '',
         title: '',
         users: []
     })
@@ -31,9 +33,9 @@ const Room: React.FC = () => {
                 url: '/rooms.json',
             })
             if (id) {
-                setRoom(data[Number(id)])
+                const room = data.find((i : Room) => i.id === id)
+                setRoom(room)
             }
-
         }
         getRooms()
     },[])
