@@ -1,6 +1,5 @@
-import Head from 'next/head'
 import Link from 'next/link'
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 
 import { Button } from '../components/Button'
 import { RoomCard } from '../components/RoomCard'
@@ -18,22 +17,13 @@ type Room = {
     usersCount: number
 }
 
-const Rooms: React.FC<Rooms> = () => {
-    const [rooms, setRooms] = useState([{id: '', title: '', users: [], usersCount: 0}])
+const Rooms: React.FC<Rooms> = (props: any) => {
 
-    useEffect(() => {
-        const getRooms = async () => {
-            const { data } = await Axios({
-                method: 'get',
-                url: '/rooms.json',
-            })
-            setRooms(data)
-        }
-        getRooms()
-    },[])
+    const [ ...rooms ] = props.data
+    console.log(props)
 
     const mapRooms = () => {
-        return rooms.map((room) => {
+        return rooms.map((room: any) => {
             return (
                 <div key={ room.id }>
                     <Link href={'/rooms/' + room.id}>
@@ -71,17 +61,16 @@ const Rooms: React.FC<Rooms> = () => {
     )
 }
 
-// export async function getStaticProps() {
-//     const { data } = await Axios({
-//         method: 'get',
-//         url: '/rooms.json',
-//     })
-//     return {
-//         props: {
-//             rooms: data || [],
-//             fallback: false,
-//         }, // will be passed to the page component as props
-//     }
-// }
+export async function getStaticProps() {
+    const { data } = await Axios({
+        method: 'get',
+        url: '/rooms.json',
+    })
+    return {
+        props: {
+            data
+        }, // will be passed to the page component as props
+    }
+}
 
 export default Rooms
