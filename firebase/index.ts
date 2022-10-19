@@ -21,8 +21,7 @@ export const firebaseInstance = initializeApp(firebaseConfig)
 //export const firebaseAnalytics = getAnalytics(firebaseInstance)
 export const firebaseAuth = getAuth(firebaseInstance)
 
-
-export default function useFirebaseAuth() {
+export const useFirebaseAuth = () => {
     const [authUser, setAuthUser] = useState<any>(null)
     const [loading, setLoading] = useState<any>(true)
 
@@ -32,7 +31,6 @@ export default function useFirebaseAuth() {
             setLoading(false)
             return
         }
-
         setLoading(true)
         setAuthUser(authState)
         setLoading(false)

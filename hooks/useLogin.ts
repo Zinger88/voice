@@ -9,9 +9,7 @@ export const useLogin = () => {
     const provider = new GithubAuthProvider()
 
     const login = async () => {
-        setError(false)
         setIsPending(true)
-
         try {
             const res = await signInWithPopup(firebaseAuth, provider)
             if (!res) {
@@ -25,9 +23,8 @@ export const useLogin = () => {
             console.log(error)
             setError(error.message)
             setIsPending(false)
-            return null
         }
     }
-
+    console.log('use login return')
     return { login, error, isPending }
 }
