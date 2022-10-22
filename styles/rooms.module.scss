@@ -1,5 +1,5 @@
 .main {
-    height: 100%;
+    height: 90vh;
 }
 
 .topbar {
@@ -12,7 +12,7 @@
 .container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     height: 100%;
 }
 
@@ -20,11 +20,36 @@
     line-height: 0;
 }
 
-.wrapper {
+.content {
+    display: flex;
+    flex-wrap: nowrap;
+    height: 100%;
+    padding-bottom: 10px;
+}
+
+.rooms {
+    display: flex;
     flex: 1 1 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 10px;
+    flex-wrap: wrap;
     align-items: flex-start;
     align-content: flex-start;
+    box-shadow: var(--boxShadow);
+    border-radius: var(--chankBorderRadius);
+    padding: 15px;
+
+    &__bar {
+        flex: 1 1 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    &__container {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 10px;
+    }
 }

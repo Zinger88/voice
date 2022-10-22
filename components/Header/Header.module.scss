@@ -2,16 +2,36 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 0;
+    padding: 15px;
     width: 100%;
+    box-shadow: var(--boxShadow);
+    border-radius: var(--chankBorderRadius);
+    margin-bottom: 15px;
+    margin-top: 5px;
 }
 
 .logo {
-    font-size: 25px;
-    flex: 0 0 50px;
+    font-size: 35px;
+    flex: 0 0 60px;
+    display: flex;
     font-weight: bold;
-    transform: scaleX(1.5);
     transform-origin: left;
+    color: var(--black);
+
+    span {
+        opacity: 0;
+        animation: cursor 5s infinite;
+    }
+}
+
+@keyframes cursor {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
 .user {
@@ -26,6 +46,8 @@
 .name {
     font-size: 14px;
     margin-right: 10px;
+    color: var(--black);
+    font-weight: bold;
 }
 
 .avatar {
@@ -33,7 +55,7 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    border: 2px solid #e5e5e5;
+    border: 2px solid var(--grey);
 }
 
 .avatar img {
@@ -41,4 +63,5 @@
     height: 100%;
     max-width: 50px;
     max-height: 50px;
+    border-radius: 50%;
 }

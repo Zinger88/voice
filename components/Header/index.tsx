@@ -1,23 +1,23 @@
 import { useRouter } from 'next/router'
 import React from 'react'
 
-import { useMainContext } from '../../contexts'
-import styles from './Header.module.css'
+import { useAuthContext } from '../../contexts'
+import styles from './Header.module.scss'
 
 // eslint-disable-next-line react/display-name
 export const Header = React.memo(() => {
-    const { user, loading } = useMainContext()
+    const { user } = useAuthContext()
     const router = useRouter()
     const onHandleClick = () => {
         router.push('/profile')
     }
-    console.log(user?.email)
+
     return (
         <div className="container-1200">
             <div className={styles.main}>
-                <div className={styles.logo}>Voice</div>
+                <div className={styles.logo}>Voice <span>_</span></div>
                 <div className={styles.user} onClick={onHandleClick}>
-                    {loading ? (
+                    {!user ? (
                         <div>Loading...</div>
                     ) : (
                         <>

@@ -5,14 +5,10 @@ import styles from './RoomCard.module.scss'
 
 interface RoomCard {
     title: string
-    users: CardUser[]
+    users: string[]
     usersCount: number
 }
 
-interface CardUser {
-    name: string
-    avatarSrc?: string
-}
 
 export const RoomCard: React.FC<RoomCard> = ({
     title,
@@ -28,7 +24,7 @@ export const RoomCard: React.FC<RoomCard> = ({
             <ul className={styles.members}>
                 {users.map((user) => {
                     return (
-                        <li key={user.name} className={styles.member}>
+                        <li key={user} className={styles.member}>
                             <div className={styles.avatar}>
                                 <Image
                                     src={'/static/user.png'}
@@ -37,7 +33,7 @@ export const RoomCard: React.FC<RoomCard> = ({
                                     height={40}
                                 />
                             </div>
-                            <div className={styles.memberName}>{user.name}</div>
+                            <div className={styles.memberName}>{user}</div>
                         </li>
                     )
                 })}

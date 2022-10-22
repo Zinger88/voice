@@ -1,0 +1,21 @@
+.layout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #eaeaea;
+  z-index: 9;
+  opacity: 0;
+  font-size: 16px;
+  font-weight: bold;
+  transition: 1s;
+
+  &.active {
+    opacity: 1;
+    transition: 1s;
+  }
+}

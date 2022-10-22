@@ -17,8 +17,6 @@ export const Button: React.FC<ButtonProps> = ({
     const onHandleClick = (e: any) => {
         if (onClick) {
             onClick(e)
-        } else {
-            console.log('Click ')
         }
     }
     return (
