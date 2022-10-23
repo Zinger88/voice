@@ -1,10 +1,22 @@
-import React, {FC, useMemo} from 'react'
+import React, { FC, useEffect, useMemo, useState } from 'react'
 
-import { useGetUsers } from '../../api/users'
+import { UserService } from '../../services/users'
 import styles from './Aside.module.scss'
+import {useAuthContext} from "../../contexts";
 
 export const AsideBar: FC = () => {
-    const { preparedData: users, loading } = useGetUsers()
+    const [users, setUsers] = useState<any[]>([])
+    const { user, loading } = useAuthContext()
+    useEffect(() => {
+        let usersListener: any
+        if(user && !loading) {
+            usersListener = UserService.usersSubscribe(setUsers)
+        }
+
+        return () => {
+            usersListener && usersListener()
+        }
+    }, [user, loading])
 
     const memoizedUsersElements = useMemo(() => {
         return users?.map((user) => {
@@ -25,7 +37,7 @@ export const AsideBar: FC = () => {
         <div className={styles.aside}>
             <h3>All users</h3>
             <div className={styles['aside__all-users']}>
-                {!loading && users ? memoizedUsersElements : <span>Loading users...</span>}
+                {users ? memoizedUsersElements : <span>Loading users...</span>}
             </div>
         </div>
     )

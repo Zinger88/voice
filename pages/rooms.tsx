@@ -1,12 +1,11 @@
 import Link from 'next/link'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 
-import { RoomsAPI } from '../api/rooms'
-import {setUserOffline, setUserOnline} from '../api/users'
 import { AsideBar } from '../components/AsideBar'
 import { Button } from '../components/Button'
 import { RoomCard } from '../components/RoomCard'
 import { useAuthContext } from '../contexts'
+import { RoomsService } from '../services/rooms'
 import styles from '../styles/rooms.module.scss'
 
 interface Rooms {
@@ -21,7 +20,16 @@ type Room = {
 }
 
 const Rooms: React.FC<Rooms> = () => {
-    const { preparedData: rooms, loading: roomsLoading } = RoomsAPI.getRooms()
+    const [rooms, setRooms] = useState<any[]>([])
+    const { user, loading } = useAuthContext()
+    useEffect(() => {
+        let roomsListener
+        if (user && !loading) {
+            roomsListener = RoomsService.usersSubscribe(setRooms)
+        }
+        return roomsListener
+    }, [user, loading])
+
     const mapRooms = () => {
         return rooms?.map((room: any) => {
             return (
@@ -44,7 +52,7 @@ const Rooms: React.FC<Rooms> = () => {
     const memoMapRooms = React.useMemo(() => mapRooms, [rooms, mapRooms])
 
     const onCreateRoomHandler = async () => {
-        await RoomsAPI.createRoom({ roomName: 'New Room' })
+        await RoomsService.createRoom({ roomName: 'New Room' })
     }
 
     return (
@@ -60,9 +68,7 @@ const Rooms: React.FC<Rooms> = () => {
                                     <span>Create room</span>
                                 </Button>
                             </div>
-                            <div className={styles['rooms__container']}>
-                                {!roomsLoading ? memoMapRooms() : 'Loading rooms'}
-                            </div>
+                            <div className={styles['rooms__container']}>{rooms ? memoMapRooms() : 'Loading rooms'}</div>
                         </div>
                     </div>
                 </div>

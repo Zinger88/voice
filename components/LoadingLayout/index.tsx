@@ -12,13 +12,14 @@ export const LoadingLayout: FC<ILoadingLayout> = (props) => {
     const [display, setDisplay] = useState(props.isShow)
     useEffect(() => {
         const timer = setTimeout(() => {
+            console.log('set')
             setDisplay(false)
         }, SHOW_CHECKING_SCREEN_TIME)
         return (
             clearTimeout(timer)
         )
     }, [props.isShow])
-
+    console.log('is show', display)
     if (!display) return null
 
     return (

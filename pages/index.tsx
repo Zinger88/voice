@@ -1,20 +1,23 @@
 import { useRouter } from 'next/router'
-import React from 'react'
+import React, {useEffect} from 'react'
 
 import { SignUpScreen } from '../components/SignUpScreen'
 import { useAuthContext } from '../contexts'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
-    const { user } = useAuthContext()
+    const { user, loading } = useAuthContext()
     const router = useRouter()
 
-    if (user) {
-        router.push('/rooms')
-    }
+    useEffect(() => {
+        if (user && !loading) {
+            router.push('/rooms')
+        }
+    }, [user, loading])
+
     return (
         <div className={styles.container}>
-            {!user && (
+            {!user && !loading && (
                 <main className={styles.main}>
                     <SignUpScreen />
                 </main>
