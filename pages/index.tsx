@@ -14,7 +14,7 @@ export default function Home() {
             router.push('/rooms')
         }
     }, [user, loading])
-
+    console.log('home')
     return (
         <div className={styles.container}>
             {!user && !loading && (

@@ -1,7 +1,10 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react';
 
-import { firebaseAuth } from '../firebase'
-import { UserService } from '../services/users'
+
+
+import { firebaseAuth } from '../firebase';
+import { UserService } from '../services/users';
+
 
 export const useFirebaseAuth = () => {
     const [authUser, setAuthUser] = useState<any>(null)
@@ -12,8 +15,8 @@ export const useFirebaseAuth = () => {
             setLoading(false)
             return
         }
-
-        await UserService.addNotExistingUserToDB(authState)
+        UserService.setUser(authState)
+        await UserService.addNotExistingUserToDB(authState.email)
 
         setAuthUser(authState)
         setLoading(false)

@@ -11,7 +11,7 @@ export default function Profile() {
     const router = useRouter()
 
     const onLogoutHandler = async () => {
-        await UserService.userLogout()
+        await UserService.userLogout(user.email)
         await router.push('/')
     }
 

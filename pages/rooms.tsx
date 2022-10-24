@@ -21,14 +21,16 @@ type Room = {
 
 const Rooms: React.FC<Rooms> = () => {
     const [rooms, setRooms] = useState<any[]>([])
-    const { user, loading } = useAuthContext()
+
+    //const { user } = useAuthContext()
     useEffect(() => {
-        let roomsListener
-        if (user && !loading) {
-            roomsListener = RoomsService.usersSubscribe(setRooms)
+        const roomsListener = RoomsService.roomsSubscribe(setRooms)
+
+        return () => {
+            console.log('unsub rooms', roomsListener)
+            roomsListener()
         }
-        return roomsListener
-    }, [user, loading])
+    }, [])
 
     const mapRooms = () => {
         return rooms?.map((room: any) => {
@@ -39,7 +41,7 @@ const Rooms: React.FC<Rooms> = () => {
                             <RoomCard
                                 key={room.id}
                                 title={room.roomName}
-                                users={room.members} //  не хватает тут
+                                users={room.members}
                                 usersCount={room.members.length}
                             />
                         </span>
@@ -48,8 +50,7 @@ const Rooms: React.FC<Rooms> = () => {
             )
         })
     }
-
-    const memoMapRooms = React.useMemo(() => mapRooms, [rooms, mapRooms])
+    const memoMapRooms = React.useMemo(() => mapRooms,[rooms, mapRooms])
 
     const onCreateRoomHandler = async () => {
         await RoomsService.createRoom({ roomName: 'New Room' })

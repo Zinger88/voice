@@ -1,6 +1,6 @@
 import { getAuth } from '@firebase/auth'
 import { initializeApp } from 'firebase/app'
-import { getFirestore, collection as fireBaseCollection } from "firebase/firestore";
+import { collection as fireBaseCollection, getFirestore } from 'firebase/firestore'
 
 //import { getAnalytics } from "firebase/analytics"
 // TODO: Add SDKs for Firebase products that you want to use
@@ -16,10 +16,9 @@ const firebaseConfig = {
     measurementId: 'G-K4MSWV8QET',
 }
 
-
 // Initialize Firebase
 export const firebaseInstance = initializeApp(firebaseConfig)
-export const db = getFirestore(firebaseInstance);
+export const db = getFirestore(firebaseInstance)
 export const collection = fireBaseCollection
 //export const firebaseAnalytics = getAnalytics(firebaseInstance)
 export const firebaseAuth = getAuth(firebaseInstance)

@@ -50,6 +50,7 @@
         width: 100%;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
+        grid-auto-rows: minmax(min-content, max-content);
         gap: 10px;
     }
 }

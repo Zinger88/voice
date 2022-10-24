@@ -19,14 +19,14 @@ export const AuthContextProvider = (props: any) => {
 
     const turnOffOnline = (e: any) => {
         e.preventDefault()
-        if (authUser && authUser.isOnline) {
+        if (authUser) {
             void UserService.setUserOffline(authUser.email)
         }
+        e.returnValue = 'Are you sure you want to exit?'
     }
 
     const turnOnOnline = async () => {
-        if (authUser && !authUser.isOnline) {
-            console.log('set online')
+        if (authUser) {
             await UserService.setUserOnline(authUser.email)
         }
     }
@@ -41,10 +41,12 @@ export const AuthContextProvider = (props: any) => {
 
     return (
         <AuthContext.Provider value={{ user: authUser, loading }}>
-            {props.children}
-            {/*<LoadingLayout isShow={loading}>*/}
-            {/*    <span>Checking your auth...</span>*/}
-            {/*</LoadingLayout>*/}
+            {!loading && props.children}
+            {loading && (
+                <LoadingLayout>
+                    <span>Loading</span>
+                </LoadingLayout>
+            )}
         </AuthContext.Provider>
     )
 }

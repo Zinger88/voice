@@ -9,13 +9,8 @@
   height: 100vh;
   background: #eaeaea;
   z-index: 9;
-  opacity: 0;
+  opacity: 1;
   font-size: 16px;
   font-weight: bold;
   transition: 1s;
-
-  &.active {
-    opacity: 1;
-    transition: 1s;
-  }
 }
