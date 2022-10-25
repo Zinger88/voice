@@ -33,7 +33,7 @@ export const SignUpScreen: React.FC = () => {
                 {error ? (
                     'Something went wrong. Please, try again'
                 ) : (
-                    'Please, Log In with Github'
+                    'Please, Log In with a Github. If you don\'t have the Github... you\'re out of luck)'
                 )}
 
             </p>
