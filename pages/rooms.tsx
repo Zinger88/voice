@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import React, { useEffect, useState } from 'react'
+import React, {useCallback, useEffect, useRef, useState} from 'react'
 
 import { AsideBar } from '../components/AsideBar'
 import { Button } from '../components/Button'
@@ -19,6 +19,7 @@ type Room = {
     usersCount: number
 }
 
+
 const Rooms: React.FC<Rooms> = () => {
     const [rooms, setRooms] = useState<any[]>([])
 
@@ -27,7 +28,6 @@ const Rooms: React.FC<Rooms> = () => {
         const roomsListener = RoomsService.roomsSubscribe(setRooms)
 
         return () => {
-            console.log('unsub rooms', roomsListener)
             roomsListener()
         }
     }, [])

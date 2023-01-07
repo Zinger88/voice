@@ -52,7 +52,6 @@ class UserServiceInstance {
     }
 
     setUserOnline = async (userId: string) => {
-        console.log('set Online')
         const userRef = doc(db, 'users', userId)
         await updateDoc(userRef, {
             isOnline: true,

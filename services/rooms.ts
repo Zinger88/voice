@@ -30,7 +30,6 @@ class RoomsServiceInstance {
 
     setMemberToRoom = async (roomId: string, userId: string) => {
         this.currentRoomId = roomId
-        console.log('set member service', this.currentRoomId)
         const roomRef = await doc(db, 'rooms', roomId)
         const docSnap = await getDoc(roomRef)
         if (!docSnap.exists()) return
@@ -49,7 +48,6 @@ class RoomsServiceInstance {
         const docSnap = await getDoc(roomRef)
         const roomData = docSnap.data()
         const filteredMembers = roomData?.members.filter((memberId: string) => memberId !== userId)
-        console.log('leave', roomData, filteredMembers, userId)
         await updateDoc(roomRef, {
             members: filteredMembers,
         })
@@ -61,7 +59,7 @@ class RoomsServiceInstance {
             q,
             (querySnapshot) => {
                 let rooms: any = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
-                console.log('rooms get ---- service', rooms)
+                //console.log('rooms get ---- service', rooms)
                 this.rooms = rooms
                 callbackSetRooms(rooms)
             },
@@ -77,7 +75,6 @@ class RoomsServiceInstance {
             doc(db, 'rooms', roomId),
             (querySnapshot) => {
                 if (!querySnapshot.exists()) return
-                console.log(' one room get ---- ')
                 const data: any = querySnapshot.data()
                 let currentRoom: any = {
                     id: roomId,

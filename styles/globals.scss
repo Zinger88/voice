@@ -6,6 +6,10 @@
     --boxShadow: 0 0 15px var(--boxShadowColor);
 }
 
+video {
+    transform: scale(-1,1);
+}
+
 html,
 body {
     height: 100%;

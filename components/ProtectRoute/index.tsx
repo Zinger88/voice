@@ -6,7 +6,6 @@ import { useAuthContext } from '../../contexts'
 export const ProtectRoute = (props: any) => {
     const { user, loading } = useAuthContext()
     const router = useRouter()
-    console.log(router.pathname)
 
     useEffect(() => {
         if (!user && !loading) {
